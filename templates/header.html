@@ -1,6 +1,45 @@
+<nav class="navbar navbar-expand-lg navbar-dark lighten-1" style="background-color: #98DBC6;">
+  <a class="navbar-brand" href="{{ url_for('showCatalog') }}"><span style="color:white">Inventory Catalog</span></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+  
+	{% if session.user_id %}
+	<ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+	  <a  class="nav-link" href="{{ url_for('newCategory') }}">Add Category<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{ url_for('newCatalogItem') }}">Add Item</a>
+      </li>
+    </ul> 
+	<ul class="navbar-nav ml-auto nav-flex-icons">
+	<li class="nav-item avatar dropdown">
+        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-55" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          <img src="{{ session['picture']}}" class="rounded-circle z-depth-0"
+            alt="avatar image"  height="40">
+        </a>
+        <div class="dropdown-menu dropdown-menu-lg-right dropdown-secondary" style="width:max-content;font-size:smaller"
+          aria-labelledby="navbarDropdownMenuLink-55">
+          <a href="{{url_for('disconnect')}}">Logout: {{ session['email']}}</a>
+        </div>
+      </li>
+    </ul>
+	 {% else %}
+	 {%if 'username' not in session %}
+	<ul class="nav navbar-nav ml-auto nav-link">
+          <li class="active" ><a class="nav-link" href="{{url_for('showLogin')}}">Login</a></li>
+	</ul>
+	  {% endif %}
+      {% endif %} 
+  </div>
+</nav>
+ <!--
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
+    Brand and toggle get grouped for better mobile display
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
         <span class="sr-only">Toggle navigation</span>
@@ -10,7 +49,7 @@
       </button>
       <a class="navbar-brand" href="{{ url_for('showCatalog') }}"><span style="color:white">Inventory Catalog</span></a>
     </div>
-   <!-- Collect the nav links, forms, and other content for toggling -->
+   <!-- Collect the nav links, forms, and other content for toggling
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
         {%if 'username' not in session %}
@@ -33,6 +72,7 @@
           {% endif %}
         {% endif %} 
       </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
+    </div><!-- /.navbar-collapse 
+  </div><!-- /.container-fluid 
 </nav>
+-->

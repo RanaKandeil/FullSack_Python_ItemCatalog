@@ -1,11 +1,11 @@
 {% extends "main.html" %}
 {% block content %}
-<h2> Are you sure you want to delete {{category.name}}? </h2>
+<h3> Are you sure you want to delete {{category.name}}? </h3>
 <form method = 'post'>
-	<button type="submit" class="btn btn-danger delete" id="submit" type="submit">
-	<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>Delete</button>
-	<button class="btn btn-default delete">
-	<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+	<button type="submit" class="btn btn-success delete" id="submit" type="submit">
+	Delete</button>
+	<button class="btn btn-info delete">
+	
 		<a href = "{{ url_for('showCatalog') }}">
 			Cancel
 		</a>

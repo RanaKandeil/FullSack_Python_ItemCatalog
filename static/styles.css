@@ -8,12 +8,10 @@ nav {
 }
 
 a {
-	color: black;
+	color: #34675C;
 }
 
-a:hover {
-	text-decoration: none;
-}
+
 
 ul, 
 li {
@@ -30,6 +28,7 @@ h3 {
 
 .btn {
 	border-radius: 0px;
+	color:#8e888f
 }
 
 .card {
@@ -48,7 +47,10 @@ h3 {
 .name {
 	padding: 0;
 }
-
+a:hover {
+	text-decoration: none;
+	color:#45969b
+}
 .editdeletepane {
 	padding-bottom: 1rem;
 }
@@ -73,4 +75,41 @@ h3 {
 .navbar-brand {
 	text-transform: uppercase;
 	font-size: 2.5rem;
+}
+.title-list{
+	font-weight: 600;
+}
+.title{
+	color: #8d239a;
+}
+.btn-success{
+	background-color: #8d239a;
+	border-color: #8d239a;
+	color: white;
+}
+.btn-info{
+	background-color: #f8f8f8;
+	border-color: #f8f8f8;
+}
+
+.btn-success:hover{
+	background-color: #f8f8f8;
+	border-color: #f8f8f8;
+	color:black;
+}
+.btn-info:hover{
+	background-color: #8d239a;
+	border-color: #8d239a;
+	color:white;
+}
+.flash{
+	background-color:#e6d0e4;
+	color: #718395;
+}
+.container	{
+	margin-top: 3%;
+}
+
+.btn.disabled, .btn:disabled {
+    opacity: 0.4;
 }

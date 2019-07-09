@@ -1,44 +1,56 @@
-<div class="col-md-3" style="height: 100%">
-  <div class="row">
+<div class="col-md-3" >
+  <div class= "row">
     <div class="col-md-12">
-      <h2>
-        <a href="{{ url_for('showCatalog') }}">Category</a>
-        {% if session.user_id %}
-		<div class="pull-right">
-          <a href = "{{ url_for('newCategory') }}">
-            <button class="btn btn-success primary">
-              <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> 
-            </button>
-          </a>
-        </div>
-		 {% endif %}
-      </h2>
-    </div>
+		<div class="row">
+		  <h3>
+			<a class="title" href="{{ url_for('showCatalog') }}">Category</a>
+			{% if session.user_id %}
+			  <a href = "{{ url_for('newCategory') }}">
+				<button class="btn  primary">
+				  <span class="fa fa-plus-circle" aria-hidden="true"></span> 
+				</button>
+			  </a>
+			 {% endif %}
+		  </h3>
+	  </div>
   </div>
   <ul class="list-group">
-  	<li class="list-group-item"><a href="{{ url_for('showCatalog') }}">Latest Items</a></li>
+  	<li class="list-group-item"><a class="title-list" href="{{ url_for('showCatalog') }}">Latest Items</a></li>
     {% for c in categories %}
       <li class="list-group-item">
         <div class="row">
           <div class="col-md-12">
-            <a href="{{ url_for('showCategoryItems', category_id=c.id) }}">{{ c.name }}</a>
+		  <div class="row">
+            <a class="col-md-6" href="{{ url_for('showCategoryItems', category_id=c.id) }}">{{ c.name }}</a>
             {% if c.user_id == session.user_id %}
-            <div class="pull-right">
-              <a href="{{ url_for('editCategory', category_id=c.id, catalog_item_id=c.id) }}">
-                <button class="btn btn-default edit">
-                  <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> 
+              <a  href="{{ url_for('editCategory', category_id=c.id, catalog_item_id=c.id) }}">
+                <button class="btn edit ">
+                  <span class="fa fa-edit" aria-hidden="true"></span>
                 </button>
               </a>
-              <a href="{{ url_for('deleteCategory', category_id=c.id, catalog_item_id=c.id) }}">
-                <button class="btn btn-danger delete">
-                  <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+              <a   href="{{ url_for('deleteCategory', category_id=c.id, catalog_item_id=c.id) }}">
+                <button class="btn  delete ">
+                  <span class="fa fa-times" aria-hidden="true"></span>
                 </button>
               </a>
-            </div>
-            {% endif %}
+          
+			{% else %}
+				<a href="#">
+					 <button class="btn edit disabled">
+						<span class="fa fa-edit" aria-hidden="true"></span>
+					</button>
+				</a>
+				<a href="#">
+					 <button class="btn  delete disabled">
+						<span  class="fa fa-times" aria-hidden="true"></span>
+					</button>
+				</a>
+			{% endif %}
+			</div>
           </div>
         </div>
       </li>
     {% endfor %}
   </ul>
+  </div>
 </div>

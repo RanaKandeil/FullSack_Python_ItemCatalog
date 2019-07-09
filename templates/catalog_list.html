@@ -1,36 +1,38 @@
-<ul class="list-group">
+<ul class="list-group"> 
+	 <li class="list-group-item d-flex justify-content-between align-items-center">
+	 <a class="title-list" >Title</a>
+	 <a class="title-list">Category Name</a>
+	 <a class="title-list">Edit / Delete</a>
+	 </li>
 	{% if items and quantity > 0 %}
 	    {% for i in items %}
-	    <li class="list-group-item">
-			<div class="row">
-				<div class="col-md-12">
-				<!-- <img class="img-thumbnail pull-left" src="http://placehold.it/150" alt="image placeholder" /> -->
-					<span class="name">
-						<a href="{{ url_for('showCatalogItem', category_id=i.category_id, catalog_item_id=i.id) }}" >
-							<h3>{{i.title}}</a><br><small>({{ i.category.name }})</small>
-							{% if i.user_id == session.user_id %}
-							<div class="editdeletepane pull-right">
-								<a href="{{ url_for('editCatalogItem', category_id=i.category_id, catalog_item_id=i.id) }}">
-									<button class="btn btn-default edit">
-										<span class="glyphicon glyphicon-edit" aria-hidden="true"></span> 
-											Edit
-									</button>
-								</a>
-								<a href="{{ url_for('deleteCatalogItem', category_id=i.category_id, catalog_item_id=i.id) }}">
-									<button class="btn btn-danger delete">
-										<span class="glyphicon glyphicon-remove" aria-hidden="true"></span> 
-											Delete
-									</button>
-								</a>
-							</div>
-							{% endif %}
-						</h3>
-					</span>
-					{% if creator %}
-					<div>
-						Created By:  {{ creator.email }}
-					{% endif %}		
-				</div>
+	    <li class="list-group-item d-flex justify-content-between align-items-center">
+		<a href="{{ url_for('showCatalogItem', category_id=i.category_id, catalog_item_id=i.id) }}" >
+			{{i.title}}</a><a>{{ i.category.name }}</a>
+			<div class="editdeletepane">
+			{% if i.user_id == session.user_id %}
+				<a href="{{ url_for('editCatalogItem', category_id=i.category_id, catalog_item_id=i.id) }}">
+					<button class="btn edit ">
+						<span class="fa fa-edit" aria-hidden="true"></span>
+					</button>
+				</a>
+				<a href="{{ url_for('deleteCatalogItem', category_id=i.category_id, catalog_item_id=i.id) }}">
+					<button class="btn delete">
+						<span  class="fa fa-times" aria-hidden="true"></span>
+					</button>
+				</a>
+			{% else %}
+			<a href="#">
+					 <button class="btn edit disabled">
+						<span class="fa fa-edit" aria-hidden="true"></span>
+					</button>
+				</a>
+				<a href="#">
+					 <button class="btn  delete disabled">
+						<span  class="fa fa-times" aria-hidden="true"></span>
+					</button>
+				</a>
+			{% endif %}
 			</div>
 	    </li>
 	    {% endfor %}
