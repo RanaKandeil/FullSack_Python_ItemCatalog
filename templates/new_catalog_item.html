@@ -12,13 +12,13 @@
 			<form method="POST">
 				<div class="form-group">
 					<label for="name">Title:</label>
-					<input type ="text" maxlength="50" class="form-control" name="title" placeholder="Title">
+					<input type ="text" maxlength="50" class="form-control" name="title" placeholder="Title" required>
 					<label for="description">Description:</label>
-					<textarea class="form-control" maxlength="250" rows="3" name="description" placeholder="Description of the item"></textarea>
+					<textarea class="form-control" maxlength="250" rows="3" name="description" placeholder="Description of the item" required></textarea>
 
 					<div class="form-group">
 						<label for="Category">Category:</label>
-						<select class="form-control" name="category">
+						<select class="form-control" name="category" required>
 							{% for c in categories %}
 								{% if item and item.category_id == c.id %} 
 								<option id="{{c.id}}" value="{{c.id}}" selected>{{c.name}}</option>
@@ -28,9 +28,9 @@
 							{% endfor %}
 						</select>
 					</div>
-					<button type="submit" class="btn btn-success" id="submit" type="submit">
+					<button type="submit" class="btn btn-create" id="submit" type="submit">
 					</span>Create</button>
-					<button class="btn btn-info delete">
+					<button class="btn btn-cancel delete">
 						
 						<a href = "{{ url_for('showCatalog') }}">
 							Cancel

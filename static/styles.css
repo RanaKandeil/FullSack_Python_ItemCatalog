@@ -82,7 +82,7 @@ a:hover {
 .title{
 	color: #8d239a;
 }
-.btn-success{
+.btn-create{
 	background-color: #8d239a;
 	border-color: #8d239a;
 	color: white;
@@ -92,16 +92,17 @@ a:hover {
 	border-color: #f8f8f8;
 }
 
-.btn-success:hover{
+.btn-create:hover ,.btn-create:active, .btn-create:visited, .btn-create:focus{
 	background-color: #f8f8f8;
 	border-color: #f8f8f8;
 	color:black;
 }
-.btn-info:hover{
-	background-color: #8d239a;
-	border-color: #8d239a;
-	color:white;
+.btn-cancel:hover,.btn-cancel:active, .btn-cancel:visited , .btn-cancel:focus{
+	background-color: #8d239a !important;
+	border-color: #8d239a !important;
+	color:white !important;
 }
+
 .flash{
 	background-color:#e6d0e4;
 	color: #718395;
@@ -112,4 +113,10 @@ a:hover {
 
 .btn.disabled, .btn:disabled {
     opacity: 0.4;
+}
+.form-control:hover{
+		border: 1px solid #98DBC6;
+}
+.form-control:click{
+		border: 1px solid #98DBC6;
 }

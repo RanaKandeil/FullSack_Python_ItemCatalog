@@ -2,9 +2,9 @@
 {% block content %}
 <h3> Are you sure you want to delete {{category.name}}? </h3>
 <form method = 'post'>
-	<button type="submit" class="btn btn-success delete" id="submit" type="submit">
+	<button type="submit" class="btn btn-create delete" id="submit" type="submit">
 	Delete</button>
-	<button class="btn btn-info delete">
+	<button class="btn btn-cancel delete">
 	
 		<a href = "{{ url_for('showCatalog') }}">
 			Cancel
